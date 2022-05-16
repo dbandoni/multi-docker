@@ -21,7 +21,7 @@ pipeline {
     }
     stage("Push Docker Images"){
         steps {
-           sh 'echo $"DOCKER_PASSWORD" | docker login -u $"DOCKER_ID" --password-stdin'
+           sh 'echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_ID} --password-stdin'
            sh 'docker push bandonidxc/multi-client'
            sh 'docker push bandonidxc/multi-nginx'
            sh 'docker push bandonidxc/multi-server'

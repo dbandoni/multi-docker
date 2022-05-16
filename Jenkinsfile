@@ -22,7 +22,7 @@ pipeline {
         sh 'docker build -t bandonidxc/multi-worker ./worker'
       }
     }
-    stage("Push Docker Images"){
+    stage("Push Docker Images to DockerHub"){
         steps {
            sh 'echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_ID} --password-stdin'
            sh 'docker push bandonidxc/multi-client'
